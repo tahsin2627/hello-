@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hey</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #f6f7fb, #ffffff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: #222;
+    }
+
+    #text {
+      max-width: 600px;
+      padding: 24px;
+      text-align: center;
+      font-size: 22px;
+      line-height: 1.4;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: all 0.8s ease;
+    }
+
+    #text.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="text"></div>
+
+  <script>
+    const lines = [
+      "Hey…",
+      "It’s kind of strange, isn’t it?",
+      "It’s been almost a year now",
+      "Talking, sharing little things",
+      "Random moments",
+      "Random days",
+      "Some conversations I still remember",
+      "Some silences too",
+      "I guess what I’m trying to say is",
+      "You’ve become important to me",
+      "In a quiet, steady way",
+      "I didn’t want to rush anything",
+      "I just didn’t want to keep this unsaid",
+      "That’s all 🤍"
+    ];
+
+    const textEl = document.getElementById("text");
+    let index = 0;
+
+    function showNextLine() {
+      if (index >= lines.length) return;
+
+      textEl.classList.remove("show");
+
+      setTimeout(() => {
+        textEl.textContent = lines[index];
+        textEl.classList.add("show");
+        index++;
+      }, 300);
+    }
+
+    showNextLine();
+    setInterval(showNextLine, 1900);
+  </script>
+
+</body>
+</html>
